@@ -27,7 +27,7 @@ public class ActorController {
 
     @GetMapping(path = "{id}")
     public Actor getActorById(@PathVariable("id") UUID id){
-       return infoService.getActorById(id).orElse(null);
+       return infoService.getActorById(id);
     }
 
     @GetMapping
