@@ -4,44 +4,43 @@ import com.nate.nateapp.dao.ProgramDao;
 import com.nate.nateapp.model.Actor;
 import com.nate.nateapp.model.Program;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class InfoService {
 
-    private final ProgramDao programDao;
-
     @Autowired
-    public InfoService(@Qualifier("stubDao") ProgramDao programDao){
-        this.programDao = programDao;
+    private ProgramDao programDao;
+
+    public void addActor(Actor actor){
+        programDao.addActor(actor);
     }
 
-    public boolean addActor(Actor actor){
-        return this.programDao.addActor(actor);
+    public void addProgram(Program program){
+        programDao.addProgram(program);
     }
 
-    public boolean addProgram(Program program){
-        return this.programDao.addProgram(program);
+    public boolean overwriteCast(UUID programId, List<Actor> actors){
+        return programDao.overwriteCast(programId, actors);
     }
 
     public List<Actor> getActors(){
-        return this.programDao.getActors();
+        return programDao.getActors();
     }
 
     public List<Program> getPrograms(){
-        return this.programDao.getPrograms();
+        return programDao.getPrograms();
     }
 
-    public Optional<Actor> getActorById(UUID id){
-        return this.programDao.getActorById(id);
+    public Actor getActorById(UUID id){
+        return programDao.getActorById(id);
     }
 
-    public Optional<Program> getProgramById(UUID id){
-        return this.programDao.getProgramById(id);
+    public Program getProgramById(UUID id){
+        return programDao.getProgramById(id);
     }
+
 }
