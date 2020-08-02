@@ -30,4 +30,4 @@ build/
 ### VS Code ###
 .vscode/
 
-src/main/java/com/nate/nateapp/service/asdf
+src/main/resources/application-secret.properties

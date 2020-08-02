@@ -53,21 +53,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.kafka</groupId>
-			<artifactId>spring-kafka-test</artifactId>
-			<scope>test</scope>
-		</dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.728</version>
+        </dependency>
+		<dependency>
+			<groupId>io.github.boostchicken</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>5.2.5</version>
+		</dependency>
     </dependencies>
 
 	<dependencyManagement>
@@ -81,6 +81,15 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<!--Custom repository:-->
+	<repositories>
+		<repository>
+			<id>dynamodb-local-oregon</id>
+			<name>DynamoDB Local Release Repository</name>
+			<url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
